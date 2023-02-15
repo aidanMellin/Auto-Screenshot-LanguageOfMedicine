@@ -13,8 +13,8 @@ It worked! I left some manual sections (such as having to manually point to dire
 change the name of the file being saved for easier studying, but I was happy with my end result.
 
 ### Metrics
-Total time spent developing - ~ 5 hours
-Total time debugging - 1.5 hours
-Total time saved from this - Math.Infinity
+- Total time spent developing - ~ 5 hours
+- Total time debugging - 1.5 hours
+- Total time saved from this - Math.Infinity
 
 :)
