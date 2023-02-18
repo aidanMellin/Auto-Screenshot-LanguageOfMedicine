@@ -44,6 +44,10 @@ class doMEDS():
         self.driver = webdriver.Firefox(service=s)
         self._login()
 
+    """
+    Login to MyCourses RIT and navigate to the MEDS201 class.
+    In order to access the slides for the class, one has to use an authenticated browser with the RIT Shibboleth credentials.
+    """
     def _login(self):
         self.driver.get("https://mycourses.rit.edu/d2l/home")
 
@@ -64,6 +68,9 @@ class doMEDS():
         input("Press Enter when you have confirmed 2FA...")
         self._navMeds()
 
+    """
+    Open the specific assignment for MEDS
+    """
     def _navMeds(self):
         self.driver.get("https://mycourses.rit.edu/d2l/le/content/924392/Home")
         page = input("\nEnter link for current MEDS assignment: ")
@@ -72,6 +79,9 @@ class doMEDS():
         sleep(5)
         self.go_through_flash_cards()
 
+    """
+    Go through the possible flash cards and screenshot each one.
+    """
     def go_through_flash_cards(self):
         # while(self.check_next()):
         while True:
@@ -92,6 +102,9 @@ class doMEDS():
                     print("Scheiße")
                     break
 
+    """
+    Get the specific text on the back of the flash card.
+    """
     def get_text(self):
         titleXPath= "/html/body/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/flashcard-question/div/div/div/div[2]/div/div/div[1]/span"
         definitionXPath = "/html/body/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/flashcard-question/div/div/div/div[2]/div/div/div[3]/div[1]/span"
@@ -105,6 +118,9 @@ class doMEDS():
         
         self.last_word = title
 
+    """
+    Find the chevron that goes to the next slide. Click it.
+    """
     def next_card(self):
         next_chevronXPath = "/html/body/div[1]/div/div/div/div/div/div/div/div[2]/div/div[2]/div/div/button[2]"
         next_chevron = self.driver.find_element(By.XPATH, next_chevronXPath)
